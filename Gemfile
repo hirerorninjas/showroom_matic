@@ -9,6 +9,8 @@ gem 'devise'
 gem "paperclip", "~> 4.2"
 #gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem "will_paginate", "~> 3.0.4"
+gem "less-rails"
+gem "twitter-bootstrap-rails"
 #gem 'libv8', '~> 3.16.14.7'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
