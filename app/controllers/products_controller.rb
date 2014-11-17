@@ -12,8 +12,6 @@ class ProductsController < ApplicationController
       @product_ids = Product.all.collect(&:id)
       respond_with(@products)
     end
-    # @products = Product.paginate(page: params[:page], per_page: 3) 
-    # respond_with(@products)
   end
 
   def show
@@ -29,7 +27,7 @@ class ProductsController < ApplicationController
   end
 
   def create
-    if current_user.admin?
+    if current_user.admin? && user_signed_in?
       @product = current_user.products.build(product_params)
       @product.save
       respond_with(@product)

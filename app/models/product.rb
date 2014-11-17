@@ -6,9 +6,11 @@ class Product < ActiveRecord::Base
   #validates_attachment_presence :photo
   validates_attachment_size :photo, :less_than => 5.megabytes
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png']
-  
-  #validates :name, presence: true
-  #validates_uniqueness_of :name
+  #validates_numericality_of :price, presence: true
+  validates :price, presence: true, numericality: true
+  validates :quantity, presence: true, numericality: true
+  validates :name, presence: true
+  validates_uniqueness_of :name
   belongs_to :category
   belongs_to :user
   has_many :likes
