@@ -1,0 +1,91 @@
+<h1>Listing products</h1>
+
+<%= form_tag products_path, :method => 'get' do %>  
+  <p> 
+    <%= text_field_tag :search, params[:search] %>  
+    <%= submit_tag "Search", :name => nil, :class => 'btn btn-mini btn-danger' %>  
+  </p>  
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th colspan="3"></th>
+
+      <th>Name</th>
+      <th colspan="3"></th>
+
+       <th>Product Image</th>
+      <th colspan="3"></th>
+
+      <th>Price</th>
+      <th colspan="3"></th>
+
+      <th>Quantity</th>
+      <th colspan="3"></th>
+
+      <th>Created at</th>
+      <th colspan="3"></th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <% if current_user.admin? %>
+        <td><%= link_to product.id, product_path(product) %></td>
+        <% end %>
+
+        <td><%= product.name %></td>
+
+        <td><%= image_tag product.photo.url(:small) %></td>
+        <td><%= product.price %></td>
+        <td><%= product.quantity %></td>
+        <td><%=l product.created_at %></td>
+
+        <% if current_user.admin? %>
+         <td> <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_product_path(product), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      product_path(product),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+        <% end %>
+
+        <td>
+          <% if current_user.dealer? && !current_user.admin? %>
+          <% if product.id != product.likes.collect(&:product_id).last.to_i %>
+          <div id ="like_btn"><%= link_to "Deal", all_likes_path(product.id) , method: :post, remote: true, :class => 'btn btn-mini' %></div>
+          <% else %>
+            <div id ="unlike_btn"><%= link_to "Not Deal", unlike_likes_path(product.id) , method: :post, remote: true , :class => 'btn btn-mini'%></div>
+          <% end %>
+          <% end %>
+        </td> 
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @products %>
+
+<% if current_user.admin? %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_product_path,
+            :class => 'btn btn-primary' %>
+<% end %>
+
+    
+<script>
+$(document).ready(function(){
+  $("#like_btn").click(function(){
+ window.location.reload();
+  });
+  $("#unlike_btn").click(function(){
+ window.location.reload();
+  });
+});
+</script>
