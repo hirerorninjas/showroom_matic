@@ -1,10 +1,15 @@
 development:
-  adapter: mysql2
-  encoding: utf8
-  reconnect: false
-  database: showroom_matic21
+  adapter: postgresql
+  encoding: unicode
+  database: blog_development
   pool: 5
-  username: root
-  password: 123456
-  host: localhost
-  port: 3306
+  username: blog
+  password:	123456
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: blog_development
+  pool: 5
+  username: blog
+  password:	123456

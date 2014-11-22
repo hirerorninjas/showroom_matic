@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.7'
 # Use sqlite3 as the database for Active Record
-gem 'mysql2'
+gem 'pg'
 gem 'devise'
 gem "paperclip", "~> 4.2"
 #gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
