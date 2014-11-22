@@ -6,7 +6,7 @@ gem 'rails', '4.1.7'
 # Use sqlite3 as the database for Active Record
 #gem 'mysql2'
 gem 'rails_12factor', group: :production
-gem 'sqlite3'
+gem 'sqlite3', '~> 1.3.10'
 #gem 'pg'
 gem 'devise'
 gem "paperclip", "~> 4.2"
