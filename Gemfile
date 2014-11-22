@@ -11,6 +11,9 @@ gem "paperclip", "~> 4.2"
 gem "will_paginate", "~> 3.0.4"
 gem "less-rails"
 gem "twitter-bootstrap-rails"
+gem 'rails4-autocomplete'
+gem "searchkick"
+#gem 'rails3-jquery-autocomplete'
 #gem 'libv8', '~> 3.16.14.7'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
@@ -41,7 +44,6 @@ gem 'spring',        group: :development
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
-# Use debugger
+gem 'web-console', '~> 2.0.0.beta3'
 gem 'debugger2'
 

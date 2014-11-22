@@ -18,6 +18,8 @@ Rails.application.configure do
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
+  config.web_console.automount = true
+  config.web_console.default_mount_path = '/terminal' # Optional, defaults to /console
 
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load

@@ -2,7 +2,7 @@ development:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: showroom_matic2
+  database: showroom_matic21
   pool: 5
   username: root
   password: 123456

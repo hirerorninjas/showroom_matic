@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   get :autocomplete, :on => :collection
   end
   resources :categories
-  devise_for :users
+  #devise_for :users
+  devise_for :users ,:controllers => { :registrations => "registrations" }
 
   get "welcome/show_dealer"
   match "products/:id/all_likes"=> 'products#all_likes', :as => :all_likes, :via => [:get, :post]
