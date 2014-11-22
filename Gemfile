@@ -6,8 +6,8 @@ gem 'rails', '4.1.7'
 # Use sqlite3 as the database for Active Record
 #gem 'mysql2'
 gem 'rails_12factor', group: :production
-gem 'sqlite3', '~> 1.3.10'
-#gem 'pg'
+#gem 'sqlite3', '~> 1.3.10'
+gem 'pg'
 gem 'devise'
 gem "paperclip", "~> 4.2"
 #gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
@@ -47,6 +47,6 @@ gem 'spring',        group: :development
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'web-console', '~> 2.0.0.beta3'
+#gem 'web-console', '~> 2.0.0.beta3'
 gem 'debugger2'
 
