@@ -37,6 +37,7 @@
         <td><%= product.price %></td>
         <td><%= product.quantity %></td>
         <td><%=l product.created_at %></td>
+
         <td>
         <% if current_user.admin? %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
@@ -57,6 +58,7 @@
           <% end %>
           <% end %>
         </td>
+        <td><%= social_share_button_tag(product.name, :popup => "true", :url => "https://mysterious-wildwood-8925.herokuapp.com/") %></td>
       </tr>
     <% end %>
   </tbody>
