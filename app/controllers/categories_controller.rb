@@ -21,9 +21,14 @@ class CategoriesController < ApplicationController
   end
 
   def create
+    if current_user.admin? && user_signed_in?
     @category = Category.new(category_params)
     @category.save
     respond_with(@category)
+    else 
+      render :text => "<h2>Sorry,You are not authorised to create the <b>Categories</b> at this time!</h2>", :status => '404', :layout => true
+      #redirect_to action: :index
+    end
   end
 
   def update
@@ -42,6 +47,6 @@ class CategoriesController < ApplicationController
     end
 
     def category_params
-      params.require(:category).permit(:name, :price, :quantity, :category_id, :photo)
+      params.require(:category).permit(:name)
     end
 end

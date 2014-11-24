@@ -32,7 +32,7 @@ class ProductsController < ApplicationController
       @product.save
       respond_with(@product)
     else 
-      render :text => "<h2>Sorry,You are not authorised to create the product at this time!</h2>", :status => '404', :layout => true
+      render :text => "<h2>Sorry,You are not authorised to create the <b>Product</b> at this time!</h2>", :status => '404', :layout => true
       #redirect_to action: :index
     end
   end
