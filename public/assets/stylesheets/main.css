@@ -712,7 +712,7 @@ section.our_client .row{
     padding:10px 0;
 	text-align:center;	
 	font-weight:bold;
-	background:url(/images/i_submenu.png) no-repeat 98% center;
+	background:url(/assets/images/i_submenu.png) no-repeat 98% center;
 }
 ._toggleMenu ul  > li a.parent{
 	background:url(/images/i_plus.png) no-repeat 98% center;
