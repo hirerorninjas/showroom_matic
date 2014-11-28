@@ -17,7 +17,6 @@
       <% if user_signed_in? && current_user.dealer? %>
       <th><%= model_class.human_attribute_name(:deal) %></th>
       <% end %>
-      <th><%= model_class.human_attribute_name(:social_share) %></th>
     </tr>
   </thead>
   <tbody>
@@ -49,7 +48,6 @@
           <% end %>
           <% end %>
         </td>
-        <td><%= social_share_button_tag("My Site") %></td>
       </tr>
     <% end %>
   </tbody>
