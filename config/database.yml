@@ -2,7 +2,7 @@ development:
   adapter: postgresql
   encoding: unicode
   host: localhost
-  database: showroom_development2
+  database: showroom_development21
   pool: 5
   username: postgres
   password: postgres
@@ -30,7 +30,7 @@ test:
   adapter: postgresql
   encoding: unicode
   host: localhost
-  database: showroom_test2
+  database: showroom_test21
   pool: 5
   username: postgres
   password: postgres
@@ -39,7 +39,7 @@ production:
   adapter: postgresql
   encoding: unicode
   host: localhost
-  database: showroom_production2
+  database: showroom_production21
   pool: 5
   username: postgres
   password: postgres
