@@ -17,6 +17,7 @@
       <% if user_signed_in? && current_user.dealer? %>
       <th><%= model_class.human_attribute_name(:deal) %></th>
       <% end %>
+      <th><%= model_class.human_attribute_name(:social_share) %></th>
     </tr>
   </thead>
   <tbody>
@@ -48,6 +49,7 @@
           <% end %>
           <% end %>
         </td>
+        <td><%= social_share_button_tag(product.name, :popup => "true", :url => "https://mysterious-wildwood-8925.herokuapp.com/") %></td>
       </tr>
     <% end %>
   </tbody>

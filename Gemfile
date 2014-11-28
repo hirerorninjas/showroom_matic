@@ -16,8 +16,8 @@ gem "less-rails"
 #gem "twitter-bootstrap-rails"
 gem 'rails4-autocomplete'
 gem "searchkick"
-#gem 'social-share-button'
-gem "social-buttons", '~> 0.3'
+gem 'social-share-button'
+#gem "social-buttons", '~> 0.3'
 #gem 'rails3-jquery-autocomplete'
 #gem 'libv8', '~> 3.16.14.7'
 # Use SCSS for stylesheets
