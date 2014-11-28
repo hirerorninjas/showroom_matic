@@ -24,7 +24,7 @@
     <% @products.each do |product| %>
       <tr>
         <td><%= product.name %></td>
-        <td><%= image_tag product.photo.url(:medium) %></td>
+        <td><%= image_tag product.photo.url(:small) %></td>
         <td><%= product.price %></td>
         <td><%= product.quantity %></td>
         <td><%=l product.created_at %></td>
@@ -49,7 +49,7 @@
           <% end %>
           <% end %>
         </td>
-        <td><%= social_share_button_tag(product.name, :popup => "true", :url => "https://mysterious-wildwood-8925.herokuapp.com/") %></td>
+        <td><%= social_share_button_tag("My Site") %></td>
       </tr>
     <% end %>
   </tbody>
