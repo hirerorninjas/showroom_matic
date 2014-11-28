@@ -13,7 +13,7 @@ gem "paperclip", "~> 4.2"
 #gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem "will_paginate", "~> 3.0.4"
 gem "less-rails"
-gem "twitter-bootstrap-rails"
+#gem "twitter-bootstrap-rails"
 gem 'rails4-autocomplete'
 gem "searchkick"
 gem 'social-share-button'

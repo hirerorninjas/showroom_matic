@@ -221,7 +221,7 @@ h1 a {
 	position:absolute;
 	left:5px;
 	top:123px;
-	background:url(../assets/images/logo.png) no-repeat left top;
+	background:url(../images/logo.png) no-repeat left top;
 }
 h5 {
 	font-size:1em;
