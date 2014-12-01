@@ -17,4 +17,10 @@ class WelcomeController < ApplicationController
 	@dealers = User.where(:admin => nil)
 	#@dealers = User.where("admin = ? or dealer = ?", false, "dealer")
   end
+
+  def show_account
+    if user_signed_in? 
+     @accounts = current_user
+    end
+  end
 end

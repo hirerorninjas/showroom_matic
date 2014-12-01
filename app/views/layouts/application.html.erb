@@ -40,7 +40,7 @@
                 <div class="span8">
                     <div class="account pull-right">
                         <ul class="user-menu">              
-                            <li><a href="#">My Account</a></li>                        
+                            <li><%= link_to 'My Account', welcome_show_account_path %></li>                        
                         </ul>
                     </div>
                 </div>
@@ -64,9 +64,6 @@
               <% elsif current_user.dealer? && !current_user.admin? %>
                 <li><%= link_to 'Show Products', products_path %></li>
                 <li><%= link_to 'Show Categories', categories_path %></li>
-              <% else  %>
-              <li><%= link_to "Sign up", new_user_registration_path %> </li>
-              <li><%= link_to "Sign in", new_user_session_path %></li>
               <% end %>
             <% else %>
               <li><%= link_to "Sign up", new_user_registration_path %> </li>
@@ -79,10 +76,10 @@
             <section  class="homepage-slider" id="home-slider">
                 <div class="flexslider">
                     <ul class="slides">
-                        <li>
+                        <li style="width: 100%; float: left; margin-right: -100%; position: relative; display: list-item;" class="flex-active-slide">
                             <img src="/assets/images/carousel/banner-1.jpg" alt="" />
                         </li>
-                        <li>
+                        <li style="width: 100%; float: left; margin-right: -100%; position: relative; display: list-item;" class="flex-active-slide">
                             <img src="/assets/images/carousel/banner-2.jpg" alt="" />
                             <div class="intro">
                                 <h1>Mid season sale</h1>
@@ -93,10 +90,10 @@
                     </ul>
                 </div>          
             </section>
-            <!-- <section class="header_text">
+            <section class="header_text">
                 We stand for top quality templates. Our genuine developers always optimized bootstrap commercial templates. 
                 <br/>Don't miss to use our cheap abd best bootstrap templates.
-            </section> -->
+            </section>
             <section class="main-content">
                 <div class="row">
                     </div>
@@ -138,7 +135,6 @@
                 </div>  
             </section>
         </div>
-        <script src="/assets/javascripts/common.js"></script>
         <script src="/assets/javascripts/jquery.flexslider-min.js"></script>
         <script type="text/javascript">
             $(function() {

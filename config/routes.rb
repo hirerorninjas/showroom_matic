@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   devise_for :users ,:controllers => { :registrations => "registrations" }
 
   get "welcome/show_dealer"
+  get "welcome/show_account"
   match "products/:id/all_likes"=> 'products#all_likes', :as => :all_likes, :via => [:get, :post]
   match "products/:id/unlike_likes"=> 'products#unlike_likes', :as => :unlike_likes, :via => [:get, :post]
  # match 'products/:id/block_deal' => 'products#block_deal', :as => :block_deal
