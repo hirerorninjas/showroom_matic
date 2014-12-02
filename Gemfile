@@ -49,6 +49,6 @@ gem 'spring',        group: :development
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-#gem 'web-console', '~> 2.0.0.beta3'
-#gem 'debugger2'
+gem 'web-console', '~> 2.0.0.beta3'
+gem 'debugger2'
 
