@@ -5,14 +5,16 @@
 <table class="table table-striped">
   <thead>
     <tr>
-    <% if current_user.admin? %>
+    <% if @salesmen.empty? %>
+    <h2>Currently no Salesmen </h2>
+    <% else %>
       <th><%= model_class.human_attribute_name(:id) %></th>
-      <% end %>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:address) %></th>
       <th><%= model_class.human_attribute_name(:dealer_name) %></th>
       <% if current_user.admin? %>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <% end %>
       <% end %>
     </tr>
   </thead>
