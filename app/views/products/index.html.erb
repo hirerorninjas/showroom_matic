@@ -17,8 +17,7 @@
       <% if user_signed_in? && current_user.dealer? %>
       <th><%= model_class.human_attribute_name(:deal) %></th>
       <% end %>
-      <th><%= model_class.human_attribute_name(:social_share) %></th>
-      <th><%= model_class.human_attribute_name(:fb_comments) %></th>
+      <!-- <th><%#= model_class.human_attribute_name(:social_share) %></th> -->
     </tr>
   </thead>
   <tbody>
@@ -55,8 +54,8 @@
   </tbody>
 </table>
 <%= will_paginate @products %>
-<div class="fb-like" data-href="https://mysterious-wildwood-8925.herokuapp.com" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div></td>
-<div class="fb-comments" data-href="https://mysterious-wildwood-8925.herokuapp.com/" data-numposts="5" data-colorscheme="light"></div></td>
+  <div class="fb-like" data-href="https://mysterious-wildwood-8925.herokuapp.com" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div></td>
+  <div class="fb-comments" data-href="https://mysterious-wildwood-8925.herokuapp.com/" data-numposts="5" data-colorscheme="light"></div></td>
 
 <script>
 $(document).ready(function(){
