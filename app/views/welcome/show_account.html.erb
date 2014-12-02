@@ -1,0 +1,27 @@
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+    <% if user_signed_in? %>
+      <th>Email </th>
+      <th> First name</th>
+      <th> Last name </th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+      <% if user_signed_in? %>
+        <td><%= current_user.email %></td>
+        <td><%= current_user.first_name %></td>
+        <td><%= current_user.last_name %></td>
+        <td>
+        </td>
+      </tr>
+      <% else %>
+      <h2> User Not Login </h2>
+      <% end %> 
+  </tbody>
+</table>
+
+ 
