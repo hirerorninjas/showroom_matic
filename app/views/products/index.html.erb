@@ -28,7 +28,6 @@
         <td><%= product.price %></td>
         <td><%= product.quantity %></td>
         <td><%=l product.created_at %></td>
-
         <td>
         <% if user_signed_in? && current_user.admin? %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

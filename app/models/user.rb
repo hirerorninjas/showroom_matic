@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
    has_many :products, through: :likes
   has_many :likes
+  has_many :salesmen
 end
