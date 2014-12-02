@@ -12,7 +12,8 @@
   <dd><%= @product.price %></dd>
   <dt><strong><%= model_class.human_attribute_name(:quantity) %>:</strong></dt>
   <dd><%= @product.quantity %></dd>
-  <dd><div class="fb-like" data-href="https://mysterious-wildwood-8925.herokuapp.com/products/?id=" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div></dd>
+  <dd><div class="fb-like" data-href="https://mysterious-wildwood-8925.herokuapp.com/products/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div></dd>
+
   
 </dl>
 
@@ -36,3 +37,7 @@
   js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=196293653897861&version=v2.0";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
+
+<script>
+    $(".fb-like").attr("data-href", window.location.href);
+</script>
