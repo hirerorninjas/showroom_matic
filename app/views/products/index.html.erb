@@ -24,7 +24,7 @@
     <% @products.each do |product| %>
       <tr>
         <td><%= product.name %></td>
-        <td><%= link_to(image_tag product.photo.url(:small)) %></td>
+        <td><%= link_to(image_tag product.photo.url(:original)) %></td>
         <td><%= product.price %></td>
         <td><%= product.quantity %></td>
         <td><%=l product.created_at %></td>

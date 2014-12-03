@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
-	has_attached_file :photo, :styles => { :small => "250x250>" },
+	has_attached_file :photo, :styles => { :original => "300x300>", :thumb => "100x100>" },
                   :url  => "/assets/products/:id/:style/:basename.:extension",
                   :path => ":rails_root/public/assets/products/:id/:style/:basename.:extension"
 

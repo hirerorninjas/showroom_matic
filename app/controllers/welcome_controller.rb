@@ -8,7 +8,7 @@ class WelcomeController < ApplicationController
   	if params[:search]
       @products = Product.search(params[:search]).paginate(:per_page => 4, :page => params[:page])
     else 
-      @products = Product.paginate(page: params[:page], per_page: 3) 
+      @products = Product.all
       @like_ids = Like.all.collect(&:product_id)
       @product_ids = Product.all.collect(&:id)
       respond_with(@products)
