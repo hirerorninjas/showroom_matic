@@ -1,7 +1,5 @@
 <%- model_class = Product -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
-</div>
+<title><%= @product.name %></title>
 
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
@@ -13,10 +11,13 @@
   <dt><strong><%= model_class.human_attribute_name(:quantity) %>:</strong></dt>
   <dd><%= @product.quantity %></dd>
   <dd>
-    <dd><a href="https://twitter.com/share" class="twitter-share-button" data-url="https://mysterious-wildwood-8925.herokuapp.com" data-via="chourey_sandeep">Tweet</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></dd>
+    <dd>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://mysterious-wildwood-8925.herokuapp.com/products/" data-via="chourey_sandeep" data-size="large" data-related="chourey_sandeep" data-hashtags="SocialShareButtons" data-dnt="true">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </dd>
 
     <dd><div class="fb-like" data-href="https://mysterious-wildwood-8925.herokuapp.com/products/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div></dd>
+
   <dd><div class="fb-comments" data-href="https://mysterious-wildwood-8925.herokuapp.com/products/" data-numposts="5" data-colorscheme="light"></div></dd>
 </dl>
 
@@ -55,6 +56,10 @@
 <script>
     $(".fb-like").attr("data-href", window.location.href);
 </script>
+
 <script>
     $(".fb-comments").attr("data-href", window.location.href);
 </script>
+
+
+<%#= tweet_button(:via => "Sandeepchourey", :url => "https://mysterious-wildwood-8925.herokuapp.com/products", :text => @product.name ) %>
