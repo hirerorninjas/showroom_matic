@@ -2,7 +2,6 @@ class WelcomeController < ApplicationController
 	before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
-#layout 'application'
 
   def index
   	if params[:search]

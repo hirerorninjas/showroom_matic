@@ -10,6 +10,7 @@ gem 'rails_12factor', group: :production
 gem 'pg'
 gem 'devise'
 gem "paperclip", "~> 4.2"
+gem "tweet-button"
 #gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem "will_paginate", "~> 3.0.4"
 gem "less-rails"
