@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Headline:</strong>
+  <%= @job_poster.Headline %>
+</p>
+
+<p>
+  <strong>Details:</strong>
+  <%= @job_poster.Details %>
+</p>
+
+<%= link_to 'Edit', edit_job_poster_path(@job_poster) %> |
+<%= link_to 'Back', job_posters_path %>

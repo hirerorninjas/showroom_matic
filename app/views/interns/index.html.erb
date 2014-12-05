@@ -1,0 +1,27 @@
+<h1>Listing interns</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Headline</th>
+      <th>Details</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @interns.each do |intern| %>
+      <tr>
+        <td><%= intern.Headline %></td>
+        <td><%= intern.Details %></td>
+        <td><%= link_to 'Show', intern %></td>
+        <td><%= link_to 'Edit', edit_intern_path(intern) %></td>
+        <td><%= link_to 'Destroy', intern, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Intern', new_intern_path %>

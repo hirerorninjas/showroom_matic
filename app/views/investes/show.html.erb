@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @investe.Company %>
+</p>
+
+<p>
+  <strong>Opportunity headline:</strong>
+  <%= @investe.Opportunity_Headline %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @investe.Description %>
+</p>
+
+<%= link_to 'Edit', edit_investe_path(@investe) %> |
+<%= link_to 'Back', investes_path %>

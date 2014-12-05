@@ -1,0 +1,27 @@
+<h1>Listing free_agents</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Headline</th>
+      <th>Details</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @free_agents.each do |free_agent| %>
+      <tr>
+        <td><%= free_agent.Headline %></td>
+        <td><%= free_agent.Details %></td>
+        <td><%= link_to 'Show', free_agent %></td>
+        <td><%= link_to 'Edit', edit_free_agent_path(free_agent) %></td>
+        <td><%= link_to 'Destroy', free_agent, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Free agent', new_free_agent_path %>

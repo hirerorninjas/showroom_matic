@@ -1,0 +1,29 @@
+<%= form_for(@investe) do |f| %>
+  <% if @investe.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@investe.errors.count, "error") %> prohibited this investe from being saved:</h2>
+
+      <ul>
+      <% @investe.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Company %><br>
+    <%= f.text_field :Company %>
+  </div>
+  <div class="field">
+    <%= f.label :Opportunity_Headline %><br>
+    <%= f.text_field :Opportunity_Headline %>
+  </div>
+  <div class="field">
+    <%= f.label :Description %><br>
+    <%= f.text_area :Description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

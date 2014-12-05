@@ -1,0 +1,29 @@
+<h1>Listing investes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Company</th>
+      <th>Opportunity headline</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @investes.each do |investe| %>
+      <tr>
+        <td><%= investe.Company %></td>
+        <td><%= investe.Opportunity_Headline %></td>
+        <td><%= investe.Description %></td>
+        <td><%= link_to 'Show', investe %></td>
+        <td><%= link_to 'Edit', edit_investe_path(investe) %></td>
+        <td><%= link_to 'Destroy', investe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Investe', new_investe_path %>
