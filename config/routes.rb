@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  resources :interns
+
+  resources :job_posters
+
+  resources :free_agents
+
+  resources :investes
+
+  resources :investors
+
   resources :roles
 
   resources :salesmen

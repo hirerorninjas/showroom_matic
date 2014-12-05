@@ -6,16 +6,22 @@ class RegistrationsController < Devise::RegistrationsController
       super
    end
 
- 
   def create
     @user = User.new sign_up_params
-    if @user.save
-      flash[:notice] = "You have signed up successfully. If enabled, a confirmation was sent to your e-mail."
-      redirect_to root_url
-    else
-      render :action => :new
+      if Role.find(params[:user][:role_id].to_i).role == "Seeking Capital"
+        redirect_to new_investe_path
+      elsif Role.find(params[:user][:role_id].to_i).role == "Free Agent"    
+        redirect_to new_free_agent_path
+      elsif Role.find(params[:user][:role_id].to_i).role == "Job Posting"   
+        redirect_to new_job_poster_path
+      elsif Role.find(params[:user][:role_id].to_i).role == "Intern"   
+        redirect_to new_intern_path
+      else
+        redirect_to new_investor_path
+      end
+        @user.save
+        flash[:notice] = "You have signed up successfully."
     end
-  end
 
   def update
     super
