@@ -308,7 +308,7 @@ section.navbar{
 	text-transform: uppercase;
 	font-weight: bold;
 	text-align: center;
-	padding: 10px 14px;
+	padding: 10px 10px;
 	}
 #menu > ul > li.active{
 	background-color:#eb4800;

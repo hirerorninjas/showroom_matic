@@ -7,4 +7,5 @@ class User < ActiveRecord::Base
    has_many :products, through: :likes
   has_many :likes
   has_many :salesmen
+  belongs_to :user
 end
