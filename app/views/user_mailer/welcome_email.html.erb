@@ -7,7 +7,6 @@
     <h2>Welcome to <%= @user.email %></h2>
     <p>
       You have successfully signed up to example.com,<br>
-      your role is :<h2> <%= Role.find(@user.role_id).role %>.</h2>
       your first name is: <h2><%= @user.first_name %>.</h2>
       your last name is: <h2><%= @user.last_name %>.</h2>
     </p>
