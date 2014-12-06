@@ -20,7 +20,8 @@ class RegistrationsController < Devise::RegistrationsController
         redirect_to new_investor_path
       end
         @user.save
-        flash[:notice] = "You have signed up successfully."
+        UserMailer.welcome_email(@user).deliver!
+        #redirect_to root_url  
     end
 
   def update
