@@ -34,7 +34,7 @@
             <div class="row">
                 <div class="span4">
                     <%= form_tag products_path, :method => 'get' do %> 
-                        <%= text_field_tag :search, params[:search], class:"input-block-level search-query", Placeholder:"eg. T-sirt" %>
+                        <%= text_field_tag :search, params[:search], class:"input-block-level search-query", Placeholder:"Search" %>
                     <% end %>
                 </div>
                 <div class="span8">
@@ -55,6 +55,7 @@
                             <% if user_signed_in? %>
             <!-- Logged in as <strong><%= current_user.email %></strong><br> -->
                 <li><%= link_to "Log out",  destroy_user_session_path , :method => :delete %></li>
+                <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |</li>
             <% if current_user.admin? %>
               <li><%= link_to 'Create Category', new_category_path %></li>
               <li><%= link_to 'Create Product', new_product_path %> </li>

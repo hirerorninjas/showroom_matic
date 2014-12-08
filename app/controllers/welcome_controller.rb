@@ -4,6 +4,7 @@ class WelcomeController < ApplicationController
   respond_to :html
 
   def index
+    @dealers = User.all
   	if params[:search]
       @products = Product.search(params[:search]).paginate(:per_page => 4, :page => params[:page])
     else 

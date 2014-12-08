@@ -31,7 +31,9 @@ class RegistrationsController < Devise::RegistrationsController
   end 
 
   def destroy
-    super
+    @user = User.find(current_user).destroy
+    DestroyUsermailer.destroy_email(@user).deliver!
+    redirect_to root_url 
   end 
 
   def show 
