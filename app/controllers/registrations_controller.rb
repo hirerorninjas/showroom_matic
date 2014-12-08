@@ -20,9 +20,9 @@ class RegistrationsController < Devise::RegistrationsController
         redirect_to new_investor_path
       end
         @user.save
-      if Role.find(@user.role_id).role == "Investor" || Role.find(@user.role_id).role == "Seeking Capital"
+      #if Role.find(@user.role_id).role == "Investor" || Role.find(@user.role_id).role == "Seeking Capital"
         UserMailer.welcome_email(@user).deliver!
-      end
+      #end
         #redirect_to root_url  
     end
 
