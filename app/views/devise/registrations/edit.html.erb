@@ -4,8 +4,18 @@
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name, autofocus: true %>
+</div>
+
+<div class="field">
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name , autocomplete: "off"%>
+  </div>
+  
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.email_field :email , autocomplete: "off" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -27,6 +37,17 @@
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
+
+<div class="field">
+    <%= f.label :resume %>
+    <%= f.file_field :resume, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :role %>
+  <%= f.collection_select :role_id, Role.all, :id, :role %>
+  </div> 
+  
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
