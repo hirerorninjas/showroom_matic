@@ -14,7 +14,7 @@
         <td><%= dealer.first_name %></td>
         <td><%= dealer.last_name %></td>
         <td><%= dealer.likes.count %>
-        <td>
+        <td><%= link_to "Download Resume",dealer.resume.url(:original) %>
         </td>
       </tr>
     <% end %>

@@ -6,16 +6,22 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:image) %></th>
-      <th><%= model_class.human_attribute_name(:price) %></th>
-      <th><%= model_class.human_attribute_name(:quantity) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= sortable "name" %></th>
+      <th><%= sortable "image" %></th>
+      <th><%= sortable "price" %></th>
+      <th><%= sortable "quantity" %></th>
+     <th><%= sortable "released_at", "Released" %></th>
+      <!-- <th><%#= model_class.human_attribute_name(:image) %></th>
+      <th><%#= model_class.human_attribute_name(:price) %></th>
+      <th><%#= model_class.human_attribute_name(:quantity) %></th>
+      <th><%#= model_class.human_attribute_name(:created_at) %></th> -->
       <% if user_signed_in? && current_user.admin? %>
-      <th><%= model_class.human_attribute_name(:action) %></th>
+      <!-- <th><%#= model_class.human_attribute_name(:action) %></th> -->
+      <th><%= link_to "Action", :sort => "action" %></th>
       <% end %>
       <% if user_signed_in? && current_user.dealer? %>
-      <th><%= model_class.human_attribute_name(:deal) %></th>
+      <!-- <th><%#= model_class.human_attribute_name(:deal) %></th> -->
+      <th><%= link_to "Deal", :sort => "deal" %></th>
       <% end %>
       <!-- <th><%#= model_class.human_attribute_name(:social_share) %></th> -->
     </tr>
@@ -23,11 +29,11 @@
   <tbody>
     <% @products.each do |product| %>
       <tr>
-        <td><%= product.name %></td>
+        <td><%= product.name.upcase %></td>
         <td><%= link_to image_tag(product.photo.url(:original)), product_path(product) %></td>
-        <td><%= product.price %></td>
+        <td><%= number_to_currency(product.price, :unit => "$") %></td>
         <td><%= product.quantity %></td>
-        <td><%=l product.created_at %></td>
+        <td><%= product.created_at.strftime("%B %e, %Y") %></td>
         <td>
         <% if user_signed_in? && current_user.admin? %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

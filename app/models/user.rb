@@ -1,11 +1,16 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  #attr_accessible :first_name
+  attr_accessor :resume
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
    has_many :products, through: :likes
-  has_many :likes
+  has_many :likes, dependent: :destroy
   has_many :salesmen
-  belongs_to :user
+#specify that the resume is a paperclip file attachment
+  has_attached_file :resume
+  validates_attachment_presence :resume
+  validates_attachment_content_type :resume, :content_type => %w(image/jpeg image/jpg image/png application/pdf application/msword application/vnd.openxmlformats-officedocument.wordprocessingml.document), 
+  :path => ":rails_root/public/assets/resumes/:id/:style/:basename.:extension",
+  :url => ":rails_root/public/assets/resumes/:id/:style/:basename.:extension"
 end

@@ -19,10 +19,10 @@ class RegistrationsController < Devise::RegistrationsController
       else
         redirect_to new_investor_path
       end
-        @user.save
+      @user.save
       #if Role.find(@user.role_id).role == "Investor" || Role.find(@user.role_id).role == "Seeking Capital"
-        UserMailer.welcome_email(@user).deliver!
-      #end
+        #UserMailer.welcome_email(@user).deliver!
+      # end
         #redirect_to root_url  
     end
 
@@ -40,12 +40,17 @@ class RegistrationsController < Devise::RegistrationsController
     super
   end
 
+  def index 
+    @users = User.all
+    redirect_to root_url  
+  end
+
 private
   def sign_up_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :role_id)
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :role_id, :resume )
   end
  
   def account_update_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :current_password, :role_id)
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :role_id, :resume )
   end
 end
