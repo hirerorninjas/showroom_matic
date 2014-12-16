@@ -1,4 +1,3 @@
-<%#= console %>
 <%- model_class = Product -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
@@ -6,6 +5,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
+     <th><%= model_class.human_attribute_name(:title) %></th>
       <th><%= model_class.human_attribute_name(:image) %></th>
       <th><%= model_class.human_attribute_name(:price) %></th>
       <th><%= model_class.human_attribute_name(:quantity) %></th>
@@ -15,9 +15,7 @@
       <% end %>
       <% if user_signed_in? && current_user.dealer? %>
       <th><%= model_class.human_attribute_name(:deal) %></th> 
-      <th><%= link_to "Deal", :sort => "deal" %></th>
       <% end %>
-       <th><%= model_class.human_attribute_name(:social_share) %></th> 
     </tr>
   </thead>
   <tbody>
