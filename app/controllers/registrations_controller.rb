@@ -21,9 +21,9 @@ class RegistrationsController < Devise::RegistrationsController
       end
       @user.save
       #if Role.find(@user.role_id).role == "Investor" || Role.find(@user.role_id).role == "Seeking Capital"
-        #UserMailer.welcome_email(@user).deliver!
+      UserMailer.welcome_email(@user).deliver!
       # end
-        #redirect_to root_url  
+      #redirect_to root_url  
     end
 
   def update
