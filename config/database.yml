@@ -2,7 +2,7 @@ development:
   adapter: postgresql
   encoding: unicode
   host: localhost
-  database: showroom_development2231454
+  database: showroom_development2231
   pool: 5
   username: postgres
   password: postgres
@@ -39,7 +39,7 @@ production:
   adapter: postgresql
   encoding: unicode
   host: localhost
-  database: showroom_production17
+  database: showroom_production21
   pool: 5
   username: postgres
   password: postgres
