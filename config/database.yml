@@ -1,11 +1,11 @@
-# development:
-#   adapter: postgresql
-#   encoding: unicode
-#   host: localhost
-#   database: showroom_development2231
-#   pool: 5
-#   username: postgres
-#   password: postgres
+development:
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  database: showroom_development2231454
+  pool: 5
+  username: postgres
+  password: postgres
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -39,7 +39,7 @@ production:
   adapter: postgresql
   encoding: unicode
   host: localhost
-  database: showroom_production_17dec
+  database: showroom_production17
   pool: 5
   username: postgres
   password: postgres
