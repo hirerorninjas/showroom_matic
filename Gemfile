@@ -9,6 +9,7 @@ gem 'rails_12factor', group: :production
 
 #gem 'sqlite3', '~> 1.3.10'
 gem 'pg'
+gem 'paypal-sdk-rest'
 gem 'devise'
 gem "paperclip", "~> 4.2"
 gem "tweet-button"
@@ -52,5 +53,5 @@ gem 'spring',        group: :development
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 #gem 'web-console', '~> 2.0.0.beta3'
-#gem 'debugger2'
+gem 'debugger2'
 

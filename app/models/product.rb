@@ -17,6 +17,8 @@ class Product < ActiveRecord::Base
   belongs_to :user
   has_many :likes
   has_many :users, through: :likes
+  has_many :line_items
+  has_many :orders, :through => :line_items
   
   def self.search(search)  
     if search  
