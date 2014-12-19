@@ -3,14 +3,19 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   attr_accessor :resume
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :timeoutable
    has_many :products, through: :likes
   has_many :likes, dependent: :destroy
   has_many :salesmen
 #specify that the resume is a paperclip file attachment
   has_attached_file :resume
-  validates_attachment_presence :resume
+  # validates_attachment_presence :resume
   validates_attachment_content_type :resume, :content_type => %w(image/jpeg image/jpg image/png application/pdf application/msword application/vnd.openxmlformats-officedocument.wordprocessingml.document), 
   :path => ":rails_root/public/assets/resumes/:id/:style/:basename.:extension",
   :url => ":rails_root/public/assets/resumes/:id/:style/:basename.:extension"
+
+  def timeout_in
+      2.minute 
+  end
+
 end
