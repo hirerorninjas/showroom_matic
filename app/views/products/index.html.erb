@@ -21,7 +21,7 @@
   <tbody>
     <% @products.each do |product| %>
       <tr>
-        <td><%= product.name.upcase %></td>
+        <td><%= product.name %></td>
         <td><%= link_to image_tag(product.photo.url(:original)), product_path(product) %></td>
         <td><%= number_to_currency(product.price, :unit => "$") %></td>
         <td><%= product.quantity %></td>
