@@ -34,6 +34,7 @@ gem 'therubyracer',  platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'friendly_id'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -53,5 +54,8 @@ gem 'spring',        group: :development
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 #gem 'web-console', '~> 2.0.0.beta3'
-gem 'debugger2'
+#gem 'debugger2'
+#gem 'sunspot_rails'
+# gem 'sunspot_rails'
+# gem 'sunspot_solr'
 

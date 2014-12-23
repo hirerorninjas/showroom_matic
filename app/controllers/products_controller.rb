@@ -78,7 +78,7 @@ end
 
   private
     def set_product
-      @product = Product.find(params[:id])
+      @product = Product.find_by_name(params[:id])
     end
 
     def product_params
