@@ -66,7 +66,7 @@ def block_deal
     @deal = Product.find(params[:id])
      @destroy_like = Like.where(:product_id => params[:id].to_i).destroy_all
     respond_with(@destroy_like)
-end
+ end
 
   def autocomplete
   @products = Product.find(:all, :conditions => ['name LIKE ?', "%#{params[:search]}%"])
@@ -79,7 +79,7 @@ end
 
   private
     def set_product
-      @product = Product.find(params[:id])
+      @product = Product.find_by_name(params[:id])
     end
 
     def product_params
