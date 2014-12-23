@@ -14,6 +14,7 @@ class ProductsController < ApplicationController
     end
   end
 
+
   def show
     respond_with(@product)
   end
