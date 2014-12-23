@@ -30,6 +30,6 @@ class Product < ActiveRecord::Base
 
 
   def to_param
-    "#{name}".parameterize
+    "#{id}#{name}".parameterize
   end
 end
