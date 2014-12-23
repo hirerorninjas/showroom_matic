@@ -44,7 +44,6 @@ Rails.application.configure do
   :authentication => :plain,
   :user_name => 'chourey1988@outlook.com',
   :password => 'sandee9754431024',
-  :domain => 'http://localhost:3000',
-  :enable_starttls_auto => true
+  :domain => 'http://localhost:3000'
   }
   end
