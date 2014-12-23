@@ -10,9 +10,7 @@
       <th><%= model_class.human_attribute_name(:price) %></th>
       <th><%= model_class.human_attribute_name(:quantity) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th> 
-      <% if user_signed_in? && current_user.admin? %>
-     <th><%= model_class.human_attribute_name(:action) %></th> 
-      <% end %>
+      <th></th>
       <% if user_signed_in? && current_user.dealer? %>
       <th><%= model_class.human_attribute_name(:deal) %></th> 
       <% end %>
