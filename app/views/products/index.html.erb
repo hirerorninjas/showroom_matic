@@ -40,9 +40,9 @@
         <td>
         <% if user_signed_in? && current_user.dealer? %>
           <% if product.id != product.likes.collect(&:product_id).last.to_i %>
-          <div id ="like_btn"><%= link_to "Deal", all_likes_path(product.id) , method: :post, remote: true, :class => 'btn btn-mini' %></div>
+          <div id ="like_btn"><%= link_to "Deal", all_likes_path(product.id) , method: :post, remote: true, :class => 'btn btn-primary' %></div>
           <% else %>
-            <div id ="unlike_btn"><%= link_to "Not Deal", unlike_likes_path(product.id) , method: :post, remote: true , :class => 'btn btn-mini'%></div>
+            <div id ="unlike_btn"><%= link_to "Not Deal", unlike_likes_path(product.id) , method: :post, remote: true , :class => 'btn btn-primary' %></div>
           <% end %>
           <% end %>
         </td>
