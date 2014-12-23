@@ -42,7 +42,7 @@ Rails.application.configure do
   :address => 'smtp.gmail.com',
   :port => '587',
   :authentication => :plain,
-  :user_name => 'chourey1988@outlook.com',
+  :user_name => 'schourey1988@gmail.com',
   :password => 'sandee9754431024',
   :domain => 'http://localhost:3000'
   }
