@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   get "welcome/show_account", :as => :account, :via => [:get, :post]
   match "products/:id/all_likes"=> 'products#all_likes', :as => :all_likes, :via => [:get, :post]
   match "products/:id/unlike_likes"=> 'products#unlike_likes', :as => :unlike_likes, :via => [:get, :post]
-  get '/:name' => 'products#show', :constrain => { :name => /[a-zA-Z-]+/ }
+  #get '/:name' => 'products#show', :constrain => { :name => /[a-zA-Z-]+/ }
  # match 'products/:id/block_deal' => 'products#block_deal', :as => :block_deal
   # match 'products/:id/deal' => 'products#deal', :as => :deal
   # The priority is based upon order of creation:
