@@ -29,20 +29,22 @@ Rails.application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
-
+  # config.action_controller.asset_host = Proc.new { |source|
+  #    "//www.sandeep.com"
+  # }
   # Adds additional error checking when serving assets at runtime.
   # Checks for improperly declared sprockets dependencies.
   # Raises helpful error messages.
   config.action_mailer.raise_delivery_errors = true
-  # config.action_mailer.default_url_options = { :host => 'http://localhost:3000' }
-  # config.action_mailer.delivery_method = :smtp
-  # ActionMailer::Base.smtp_settings = {
-  # :address => 'smtp.gmail.com',
-  # :port => '587',
-  # :authentication => :plain,
-  # :user_name => 'schourey1988@gmail.com',
-  # :password => 'sandeep9754431024',
-  # :domain => 'http://localhost:3000',
-  # :enable_starttls_auto => true
-  # }
+  config.action_mailer.default_url_options = { :host => 'http://localhost:3000' }
+  config.action_mailer.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+  :address => 'smtp.gmail.com',
+  :port => '587',
+  :authentication => :plain,
+  :user_name => 'chourey1988@outlook.com',
+  :password => 'sandee9754431024',
+  :domain => 'http://localhost:3000',
+  :enable_starttls_auto => true
+  }
   end
