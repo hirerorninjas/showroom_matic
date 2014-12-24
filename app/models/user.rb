@@ -15,10 +15,9 @@ validates_attachment_content_type :resume, :content_type =>['application/pdf'],
 :path => ":rails_root/public/assets/resumes/:id/:style/:basename.:extension",
 :url => ":rails_root/public/assets/resumes/:id/:style/:basename.:extension"
 
-
-# def resume_attached?
-#   self.resume.file?
-# end
+  before_create do
+    self.last_name = first_name.capitalize if last_name.blank?
+  end
 
   # def timeout_in
   #     2.minute 
