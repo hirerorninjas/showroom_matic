@@ -1,5 +1,5 @@
 <%= javascript_include_tag "http://www.google.com/jsapi", "chartkick" %>
   <div class="col-xs-6">
     <h3 align="center">Products By Day</h3>
-    <%= pie_chart @analytics.group(:name).count, discrete: true %>
+    <%= pie_chart @analytics.group_by_day(:created_at, format: "%B %d, %Y").count, discrete: true %>
   </div>
