@@ -6,8 +6,9 @@ gem 'rails', '4.1.7'
 # Use sqlite3 as the database for Active Record
 #gem 'mysql2'
 gem 'rails_12factor', group: :production
-
-#gem 'sqlite3', '~> 1.3.10'
+gem 'chartkick'
+gem 'groupdate'
+gem 'active_median'
 gem 'pg'
 gem 'paypal-sdk-rest'
 gem 'devise'
@@ -31,7 +32,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem 'therubyracer',  platforms: :ruby
-
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 #gem 'friendly_id'
@@ -55,6 +55,8 @@ gem 'spring',        group: :development
 # gem 'capistrano-rails', group: :development
 #gem 'web-console', '~> 2.0.0.beta3'
 #gem 'debugger2'
+#gem 'gchartrb'
+#gem 'google_chart'
 #gem 'sunspot_rails'
 # gem 'sunspot_rails'
 # gem 'sunspot_solr'

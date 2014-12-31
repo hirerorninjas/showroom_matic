@@ -22,12 +22,8 @@
         <script src="/assets/javascripts/jquery.scrolltotop.js"></script>
         <%#= stylesheet_link_tag "application", :media => "all" %>
         <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-        
+        <%= javascript_include_tag 'application' %>
         <%= csrf_meta_tags %>
-        <!--[if lt IE 9]>           
-            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-            <script src="js/respond.min.js"></script>
-        <![endif]-->
     </head>
     <body>      
         <div id="top-bar" class="container">
@@ -63,6 +59,7 @@
               <li><%= link_to 'Show Dealers', dealer_path %> </li>
               <li><%= link_to 'Show Categories', categories_path %> </li>
               <li><%= link_to 'Show Products', products_path %></li>
+              <li><%= link_to 'Analytics', analytics_path %></li>
              <%#= link_to 'Show Salesman', salesmen_path %>
               <% elsif current_user.dealer? && !current_user.admin? %>
                 <li><%= link_to 'Show Products', products_path %></li>

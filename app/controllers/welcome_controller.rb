@@ -25,4 +25,9 @@ class WelcomeController < ApplicationController
      @accounts = current_user
     end
   end
+
+  def analytics
+    @analytics = Product.all
+    respond_with(@analytics)
+  end
 end
