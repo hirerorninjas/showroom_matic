@@ -32,6 +32,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :select_country %>
+    <%= f.collection_select :country_id, CountryList.all, :id, :name %>
+  </div>
+
+  <div class="field">
     <%= f.label :resume %>
     <em> resume must be in pdf format</em> <br>
     <%= f.file_field :resume, autocomplete: "off" %>
