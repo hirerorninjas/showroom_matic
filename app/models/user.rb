@@ -8,6 +8,10 @@ class User < ActiveRecord::Base
   has_many :likes, dependent: :destroy
   has_many :salesmen
 # specify that the resume is a paperclip file attachment
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :terms_accepted, acceptance: true
+  validates_presence_of :resume
   has_attached_file :resume
   validates_attachment_presence :resume
   #validates_attachment_content_type :resume, :content_type => %w(image/jpeg image/jpg image/png application/pdf application/msword application/vnd.openxmlformats-officedocument.wordprocessingml.document), 
@@ -22,5 +26,4 @@ validates_attachment_content_type :resume, :content_type =>['application/pdf'],
   # def timeout_in
   #     2.minute 
   # end
-
 end

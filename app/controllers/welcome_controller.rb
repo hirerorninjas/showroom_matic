@@ -30,4 +30,7 @@ class WelcomeController < ApplicationController
     @analytics = Product.all
     respond_with(@analytics)
   end
+
+  def terms_candition
+  end 
 end

@@ -30,9 +30,11 @@ Rails.application.routes.draw do
 
   get "welcome/show_dealer", :as => :dealer
   get "welcome/show_account", :as => :account, :via => [:get, :post]
+  get "welcome/analytics", :as => :analytics
+  get "welcome/terms_candition", :as => :terms_candition
   match "products/:id/all_likes"=> 'products#all_likes', :as => :all_likes, :via => [:get, :post]
   match "products/:id/unlike_likes"=> 'products#unlike_likes', :as => :unlike_likes, :via => [:get, :post]
-  get "welcome/analytics", :as => :analytics
+  
   #match "products/:id/analytics"=> 'products#analytics', :as => :analytics, :via => [:get, :post]
   #get '/:name' => 'products#show', :constrain => { :name => /[a-zA-Z-]+/ }
  # match 'products/:id/block_deal' => 'products#block_deal', :as => :block_deal
