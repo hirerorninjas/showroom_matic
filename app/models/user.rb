@@ -4,17 +4,16 @@ class User < ActiveRecord::Base
   attr_accessor :resume
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :timeoutable
-   has_many :products, through: :likes
+  has_many :products, through: :likes
   has_many :likes, dependent: :destroy
   has_many :salesmen
   belongs_to :country_list
-# specify that the resume is a paperclip file attachment
-  #validates :first_name, presence: true
-  #validates :last_name, presence: true
-  #validates :terms_accepted, acceptance: true
-  validates_presence_of :resume
-  has_attached_file :resume
+  # specify that the resume is a paperclip file attachment
+  validates_presence_of :first_name, :message => "is required" 
+  validates :last_name, :presence => { :message => "is required" }
+  has_attached_file :resume, :message => "is required"
   validates_attachment_presence :resume
+  #validates_acceptance_of :terms_accepted, :message => "is required"
   #validates_attachment_content_type :resume, :content_type => %w(image/jpeg image/jpg image/png application/pdf application/msword application/vnd.openxmlformats-officedocument.wordprocessingml.document), 
   validates_attachment_content_type :resume, :content_type =>['application/pdf'],
   :path => ":rails_root/public/assets/resumes/:id/:style/:basename.:extension",
