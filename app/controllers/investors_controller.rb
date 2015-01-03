@@ -20,7 +20,7 @@ class InvestorsController < ApplicationController
       @investor = Investor.new
       respond_with(@investor)
     else 
-      render :text => "<h2>Sorry,You are not authorised to create the <b>Investor</b> at this time!</h2>", :status => '404', :layout => true
+      render :text => "<h2>Sorry,You are not authorised to create the <b>Investor</b> at this time!</h2>", :status => '404', :layout => true  ## show message for unauthorised
     end
   end
 

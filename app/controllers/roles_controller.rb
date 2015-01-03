@@ -17,7 +17,7 @@ class RolesController < ApplicationController
       @role = Role.new
       respond_with(@role)
     else 
-      render :text => "<h2>Sorry,You are not authorised to create the <b>Role</b> at this time!</h2>", :status => '404', :layout => true
+      render :text => "<h2>Sorry,You are not authorised to create the <b>Role</b> at this time!</h2>", :status => '404', :layout => true ## show message for unauthorised
     end
   end
 
@@ -25,9 +25,9 @@ class RolesController < ApplicationController
   end
 
   def create
-      @role = Role.new(role_params)
-      @role.save
-      respond_with(@role)
+    @role = Role.new(role_params)
+    @role.save
+    respond_with(@role)
   end
 
   def update
@@ -40,7 +40,7 @@ class RolesController < ApplicationController
     respond_with(@role)
   end
 
-private
+  private
     def require_login
       unless user_signed_in?
         flash[:error] = "You must be logged in to access this section"

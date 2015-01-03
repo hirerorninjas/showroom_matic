@@ -17,7 +17,7 @@ class CategoriesController < ApplicationController
       @category = Category.new
       respond_with(@category)
     else 
-      render :text => "<h2>Sorry,You are not authorised to create the <b>Category</b> at this time!</h2>", :status => '404', :layout => true
+      render :text => "<h2>Sorry,You are not authorised to create the <b>Category</b> at this time!</h2>", :status => '404', :layout => true  ## show message for unauthorised
     end
   end
 
@@ -31,7 +31,6 @@ class CategoriesController < ApplicationController
       respond_with(@category)
     else 
       render :text => "<h2>Sorry,You are not authorised to create the <b>Categories</b> at this time!</h2>", :status => '404', :layout => true
-      #redirect_to action: :index
     end
   end
 
@@ -45,7 +44,7 @@ class CategoriesController < ApplicationController
     respond_with(@category)
   end
 
-private
+  private
     def require_login
       unless user_signed_in?
         flash[:error] = "You must be logged in to access this section"

@@ -23,7 +23,7 @@ class ProductsController < ApplicationController
       @product = Product.new
       respond_with(@product)
     else 
-      render :text => "<h2>Sorry,You are not authorised to create the <b>Product</b> at this time!</h2>", :status => '404', :layout => true
+      render :text => "<h2>Sorry,You are not authorised to create the <b>Product</b> at this time!</h2>", :status => '404', :layout => true  ## show message for unauthorised
     end
   end
 
@@ -46,7 +46,7 @@ class ProductsController < ApplicationController
     respond_with(@product)
   end
 
-def block_deal
+  def block_deal
     @block_deal = Product.find(params[:id])
     @block_deal.update_attributes(:deal => 'false')
     respond_with(@block_deal)
@@ -67,12 +67,12 @@ def block_deal
  end
 
   def autocomplete
-  @products = Product.find(:all, :conditions => ['name LIKE ?', "%#{params[:search]}%"])
-  @hash = []
-  @products.each do |pro|
-    @hash << {"label" => pro.name, "id" => pro.id}
-  end
-  render :json => @hash
+    @products = Product.find(:all, :conditions => ['name LIKE ?', "%#{params[:search]}%"])
+    @hash = []
+    @products.each do |pro|
+      @hash << {"label" => pro.name, "id" => pro.id}
+    end
+      render :json => @hash
   end
 
   private

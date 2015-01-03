@@ -17,7 +17,7 @@ class FreeAgentsController < ApplicationController
       @free_agent = FreeAgent.new
       respond_with(@free_agent)
     else 
-      render :text => "<h2>Sorry,You are not authorised to create the <b>FreeAgent</b> at this time!</h2>", :status => '404', :layout => true
+      render :text => "<h2>Sorry,You are not authorised to create the <b>FreeAgent</b> at this time!</h2>", :status => '404', :layout => true  ## show message for unauthorised
     end
   end
 
@@ -46,7 +46,7 @@ class FreeAgentsController < ApplicationController
     respond_with(@free_agent)
   end
 
-private
+  private
     def require_login
       unless user_signed_in?
         flash[:error] = "You must be logged in to access this section"

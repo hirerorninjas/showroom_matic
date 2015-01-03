@@ -17,7 +17,7 @@ class SalesmenController < ApplicationController
       @salesman = Salesman.new
       respond_with(@salesman)
     else 
-      render :text => "<h2>Sorry,You are not authorised to create the <b>Salesman</b> at this time!</h2>", :status => '404', :layout => true
+      render :text => "<h2>Sorry,You are not authorised to create the <b>Salesman</b> at this time!</h2>", :status => '404', :layout => true ## show message for unauthorised
     end
   end
 
@@ -25,7 +25,6 @@ class SalesmenController < ApplicationController
   end
 
   def create
-    #@salesman = current_user.salesmen.build(salesman_params)
     @salesman = Salesman.new(salesman_params)
     @salesman.save
     respond_with(@salesman)

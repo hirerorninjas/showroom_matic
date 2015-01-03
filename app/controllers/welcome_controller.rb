@@ -5,24 +5,23 @@ class WelcomeController < ApplicationController
 
   def index
     @dealers = User.all
-  	if params[:search]
-      @products = Product.search(params[:search]).paginate(:per_page => 4, :page => params[:page])
-    else 
-      @products = Product.paginate(:per_page => 4, :page => params[:page])
-      @like_ids = Like.all.collect(&:product_id)
-      @product_ids = Product.all.collect(&:id)
-      respond_with(@products)
-    end
+  	  if params[:search]
+        @products = Product.search(params[:search]).paginate(:per_page => 4, :page => params[:page])
+      else 
+        @products = Product.paginate(:per_page => 4, :page => params[:page])
+        @like_ids = Like.all.collect(&:product_id)
+        @product_ids = Product.all.collect(&:id)
+        respond_with(@products)
+      end
   end
   
   def show_dealer
-	@dealers = User.where(:admin => nil)
-	#@dealers = User.where("admin = ? or dealer = ?", false, "dealer")
+	  @dealers = User.where(:admin => nil)
   end
 
   def show_account
     if user_signed_in? 
-     @accounts = current_user
+      @accounts = current_user
     end
   end
 

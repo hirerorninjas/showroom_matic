@@ -17,7 +17,7 @@ class InvestesController < ApplicationController
       @investe = Investe.new
       respond_with(@investe)
     else 
-      render :text => "<h2>Sorry,You are not authorised to create the <b>Investe</b> at this time!</h2>", :status => '404', :layout => true
+      render :text => "<h2>Sorry,You are not authorised to create the <b>Investe</b> at this time!</h2>", :status => '404', :layout => true  ## show message for unauthorised
     end
   end
 
