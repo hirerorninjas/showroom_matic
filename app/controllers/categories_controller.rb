@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
-
+  before_action :require_login
   respond_to :html
 
   def index
@@ -13,8 +13,12 @@ class CategoriesController < ApplicationController
   end
 
   def new
-    @category = Category.new
-    respond_with(@category)
+    if current_user.admin? && user_signed_in?
+      @category = Category.new
+      respond_with(@category)
+    else 
+      render :text => "<h2>Sorry,You are not authorised to create the <b>Category</b> at this time!</h2>", :status => '404', :layout => true
+    end
   end
 
   def edit
@@ -22,9 +26,9 @@ class CategoriesController < ApplicationController
 
   def create
     if current_user.admin? && user_signed_in?
-    @category = Category.new(category_params)
-    @category.save
-    respond_with(@category)
+      @category = Category.new(category_params)
+      @category.save
+      respond_with(@category)
     else 
       render :text => "<h2>Sorry,You are not authorised to create the <b>Categories</b> at this time!</h2>", :status => '404', :layout => true
       #redirect_to action: :index
@@ -41,6 +45,14 @@ class CategoriesController < ApplicationController
     respond_with(@category)
   end
 
+private
+    def require_login
+      unless user_signed_in?
+        flash[:error] = "You must be logged in to access this section"
+        redirect_to new_user_session_path # halts request cycle
+      end
+    end
+    
   private
     def set_category
       @category = Category.find(params[:id])

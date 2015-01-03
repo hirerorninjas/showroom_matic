@@ -1,11 +1,14 @@
 class InvestorsController < ApplicationController
   before_action :set_investor, only: [:show, :edit, :update, :destroy]
-
+  before_action :require_login
   respond_to :html
-
   def index
     @investors = Investor.all
-    respond_with(@investors)
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render xml: @investors}
+      format.json { render json: @investors}
+    end
   end
 
   def show
@@ -13,8 +16,12 @@ class InvestorsController < ApplicationController
   end
 
   def new
-    @investor = Investor.new
-    respond_with(@investor)
+    if current_user.admin? && user_signed_in?
+      @investor = Investor.new
+      respond_with(@investor)
+    else 
+      render :text => "<h2>Sorry,You are not authorised to create the <b>Investor</b> at this time!</h2>", :status => '404', :layout => true
+    end
   end
 
   def edit
@@ -22,14 +29,14 @@ class InvestorsController < ApplicationController
 
   def create
     @investor = Investor.new(investor_params)
-    if @investor.valid?
-      @investor.save
-      flash[:success] = "Investor created!"
-      redirect_to root_url
-    else 
-      flash[:error] = @investor.errors
-      render :template => "investors/new"
-    end
+      if @investor.valid?
+         @investor.save
+         flash[:success] = "Investor created!"
+         redirect_to root_url
+      else 
+         flash[:error] = @investor.errors
+         render :template => "investors/new"
+      end
   end
 
   def update
@@ -41,6 +48,14 @@ class InvestorsController < ApplicationController
     @investor.destroy
     respond_with(@investor)
   end
+
+  private
+    def require_login
+      unless user_signed_in?
+        flash[:error] = "You must be logged in to access this section"
+        redirect_to new_user_session_path # halts request cycle
+      end
+    end
 
   private
     def set_investor

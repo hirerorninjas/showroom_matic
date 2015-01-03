@@ -1,8 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-
+  before_action :require_login
   respond_to :html
-
   def index
     if params[:search]
       @products = Product.search(params[:search]).paginate(:per_page => 4, :page => params[:page])
@@ -20,22 +19,21 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @product = Product.new
-    respond_with(@product)
+    if current_user.admin? && user_signed_in?
+      @product = Product.new
+      respond_with(@product)
+    else 
+      render :text => "<h2>Sorry,You are not authorised to create the <b>Product</b> at this time!</h2>", :status => '404', :layout => true
+    end
   end
 
   def edit
   end
 
   def create
-    if current_user.admin? && user_signed_in?
       @product = current_user.products.build(product_params)
       @product.save
       respond_with(@product)
-    else 
-      render :text => "<h2>Sorry,You are not authorised to create the <b>Product</b> at this time!</h2>", :status => '404', :layout => true
-      #redirect_to action: :index
-    end
   end
 
   def update
@@ -76,6 +74,14 @@ def block_deal
   end
   render :json => @hash
   end
+
+  private
+    def require_login
+      unless user_signed_in?
+        flash[:error] = "You must be logged in to access this section"
+        redirect_to new_user_session_path # halts request cycle
+      end
+    end
 
   private
     def set_product

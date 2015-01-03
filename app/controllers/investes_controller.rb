@@ -1,6 +1,6 @@
 class InvestesController < ApplicationController
   before_action :set_investe, only: [:show, :edit, :update, :destroy]
-
+  before_action :require_login
   respond_to :html
 
   def index
@@ -13,8 +13,12 @@ class InvestesController < ApplicationController
   end
 
   def new
-    @investe = Investe.new
-    respond_with(@investe)
+    if current_user.admin? && user_signed_in?
+      @investe = Investe.new
+      respond_with(@investe)
+    else 
+      render :text => "<h2>Sorry,You are not authorised to create the <b>Investe</b> at this time!</h2>", :status => '404', :layout => true
+    end
   end
 
   def edit
@@ -42,6 +46,14 @@ class InvestesController < ApplicationController
     @investe.destroy
     respond_with(@investe)
   end
+
+  private
+    def require_login
+      unless user_signed_in?
+        flash[:error] = "You must be logged in to access this section"
+        redirect_to new_user_session_path # halts request cycle
+      end
+    end
 
   private
     def set_investe

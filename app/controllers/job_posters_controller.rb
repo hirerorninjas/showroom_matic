@@ -1,6 +1,6 @@
 class JobPostersController < ApplicationController
   before_action :set_job_poster, only: [:show, :edit, :update, :destroy]
-
+  before_action :require_login
   respond_to :html
 
   def index
@@ -13,8 +13,12 @@ class JobPostersController < ApplicationController
   end
 
   def new
-    @job_poster = JobPoster.new
-    respond_with(@job_poster)
+    if current_user.admin? && user_signed_in?
+      @job_poster = JobPoster.new
+      respond_with(@job_poster)
+    else 
+      render :text => "<h2>Sorry,You are not authorised to create the <b>JobPoster</b> at this time!</h2>", :status => '404', :layout => true
+    end
   end
 
   def edit
@@ -41,6 +45,15 @@ class JobPostersController < ApplicationController
     @job_poster.destroy
     respond_with(@job_poster)
   end
+
+  private
+    def require_login
+      unless user_signed_in?
+        flash[:error] = "You must be logged in to access this section"
+        redirect_to new_user_session_path # halts request cycle
+      end
+    end
+
 
   private
     def set_job_poster

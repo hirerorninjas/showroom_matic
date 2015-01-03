@@ -1,6 +1,6 @@
 class FreeAgentsController < ApplicationController
   before_action :set_free_agent, only: [:show, :edit, :update, :destroy]
-
+  before_action :require_login
   respond_to :html
 
   def index
@@ -13,8 +13,12 @@ class FreeAgentsController < ApplicationController
   end
 
   def new
-    @free_agent = FreeAgent.new
-    respond_with(@free_agent)
+    if current_user.admin? && user_signed_in?
+      @free_agent = FreeAgent.new
+      respond_with(@free_agent)
+    else 
+      render :text => "<h2>Sorry,You are not authorised to create the <b>FreeAgent</b> at this time!</h2>", :status => '404', :layout => true
+    end
   end
 
   def edit
@@ -42,6 +46,14 @@ class FreeAgentsController < ApplicationController
     respond_with(@free_agent)
   end
 
+private
+    def require_login
+      unless user_signed_in?
+        flash[:error] = "You must be logged in to access this section"
+        redirect_to new_user_session_path # halts request cycle
+      end
+    end
+    
   private
     def set_free_agent
       @free_agent = FreeAgent.find(params[:id])
