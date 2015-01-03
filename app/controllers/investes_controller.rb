@@ -22,8 +22,15 @@ class InvestesController < ApplicationController
 
   def create
     @investe = Investe.new(investe_params)
-    @investe.save
-    redirect_to root_url
+    if @investe.valid?
+      @investe.save
+      flash[:success] = "Investe created!"
+      @investe.save
+      redirect_to root_url
+    else 
+      flash[:error] = @investe.errors
+      render :template => "investes/new"
+    end
   end
 
   def update

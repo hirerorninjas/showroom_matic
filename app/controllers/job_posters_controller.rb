@@ -22,8 +22,14 @@ class JobPostersController < ApplicationController
 
   def create
     @job_poster = JobPoster.new(job_poster_params)
-    @job_poster.save
-    redirect_to root_url
+    if @job_poster.valid?
+      @job_poster.save
+      flash[:success] = "JobPoster created!"
+      redirect_to root_url
+    else 
+      flash[:error] = @job_poster.errors
+      render :template => "job_posters/new"
+    end
   end
 
   def update

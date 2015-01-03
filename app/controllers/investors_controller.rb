@@ -22,8 +22,14 @@ class InvestorsController < ApplicationController
 
   def create
     @investor = Investor.new(investor_params)
-    @investor.save
-    redirect_to root_url
+    if @investor.valid?
+      @investor.save
+      flash[:success] = "Investor created!"
+      redirect_to root_url
+    else 
+      flash[:error] = @investor.errors
+      render :template => "investors/new"
+    end
   end
 
   def update

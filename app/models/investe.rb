@@ -1,5 +1,4 @@
 class Investe < ActiveRecord::Base
-validates :Company, presence: true
-validates :Opportunity_Headline, presence: true
-validates :Description, presence: true
+validates :Company, :Opportunity_Headline, :Description, :presence => { :message => "is required" }
+validates_uniqueness_of :Company
 end

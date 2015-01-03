@@ -22,9 +22,15 @@ class InternsController < ApplicationController
 
   def create
     @intern = Intern.new(intern_params)
-    @intern.save
-    redirect_to root_url
-  end
+    if @intern.valid?
+      @intern.save
+      flash[:success] = "Intern created!"
+      redirect_to root_path
+    else
+      flash[:error] = @intern.errors
+      render :template => "interns/new"
+    end
+end
 
   def update
     @intern.update(intern_params)

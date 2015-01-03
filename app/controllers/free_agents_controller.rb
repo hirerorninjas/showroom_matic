@@ -22,8 +22,14 @@ class FreeAgentsController < ApplicationController
 
   def create
     @free_agent = FreeAgent.new(free_agent_params)
-    @free_agent.save
-    redirect_to root_url
+    if @free_agent.valid?
+      @free_agent.save
+      flash[:success] = "Intern created!"
+      redirect_to root_url
+    else 
+      flash[:error] = @free_agent.errors
+      render :template => "free_agents/new"
+    end
   end
 
   def update
