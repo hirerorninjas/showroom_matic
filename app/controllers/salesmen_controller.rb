@@ -21,7 +21,8 @@ class SalesmenController < ApplicationController
   end
 
   def create
-    @salesman = current_user.salesmen.build(salesman_params)
+    #@salesman = current_user.salesmen.build(salesman_params)
+    @salesman = Salesman.new(salesman_params)
     @salesman.save
     respond_with(@salesman)
   end
